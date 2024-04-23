@@ -17,67 +17,51 @@ In today's financial landscape, taking out loans has become a standard practice 
 
 # 🚶 Steps we took
 **1. Data Preparation** <br>
-<pre><code>- Dropping Data: Dropped "Year" and "Country"
-- Correcting Variable names: Some were wrongly written and had weird spaces
+<pre><code>- Dropping Data: Dropped columns that are deemed irrelevant and useless to the model
+- Regrouping Variable: For column 'loan_status', we decided to drop rows with Current/In Grace Period/Issued
 - Addressing NA Values: Filling NA values with the median of the original data
 - Removing outliers: Data points which are +- 1.5 IQR from Q1 and Q3 were considered to be outliers
-- Encoding of Category Variables: Label Encoder to encode "Status" into 0 and 1. 0 represents Developed Countries while 1 <br>represents Developing Countries</code></pre>
+- Encoding of Category Variables: Label Encoder and One Hot Encoder to encode all the categorical variable based on the number of unique value it has</code></pre>
 
 **2. Data Visualisation & Exploratory Data Analysis** <br>
-<pre><code>- Plotted the distribution of all variables using a boxplot, histogram and violinplot for all 20 variables
-- Scatterplot of all predictor variables against Life Expectancy
-- Ended off by plotting a Heatmap to show the correlation of all variables
+<pre><code>- Plotted the distribution of all variables using a boxplot, histogram and violinplot for all 32 variables
+- Scatterplot of all predictor variables against Credit Risk
 - Generate Data-driven insights
 </code></pre>
 
-**3. SKLearn Multi-Variate Linear Regression** <br>
+**3. SKLearn Random Forest Classification** <br>
+<pre><code>- We ran a train-test split of 70-30 
+- Made used of 100 as our estimator in order to generate a more reliable model
+- Obtained an initial classification accuracy of 100% on the train set but only 99.83% in the test model.
+- Obtained 0% in both FP and FN in train set but 0.61% FN in test set.
+- Hence, we removed the outliers and ran the model again which later return improved results with 99.93% and 99.97% in classification for both train and test set. Reduced FN rate of 0.25% and 0.12% in train and test respectively.
+</code></pre>
+
+**4. SKLearn Logistic Regression** <br>
 <pre><code>- Ran a train-test split of 80-20
-- Fitted the model and plotted a scatter plot of Life Expectancy against the predictors
-- Obtained an initial MSE score of 13.49
-- To deal with issues such as overfitting and selection bias, we made use of 10-Fold Cross Validaton and obtained a final MSE score of 12.63.
+- Fitted the model and plotted the classifcation report and confusion matrix
+- Obtained an initial classification accuracy of 99.88% in train set and 99.87% in test set.
+- Obtained a FN rate of 0.43% in train set and 0.46% FN rate in test set.
+- Hence, we removed the outliers and ran the model again which later return a lower FN in train set of 0.36%  
 </code></pre>
 
-**4. SKLearn Random Forest Regression** <br>
-<pre><code>- Again, we ran a train-test split of 80-20
-- Made use of GridSearch to determine the best number of estimators from 1 to 101. 
-- Obtained best number of estimators as 101.
-- Obtained an initial MSE score of 2.85 which seemed too low and suggested the presence of overfitting.
-- Thus, we again made use of 10-Fold Cross Validaton and obtained a final MSE score of 3.30.
-</code></pre>
-
-**5. Deep Learning Regression using TensorFlow** <br>
-<pre><code>- To prepare the data, we had to remove all spaces and replace them with dashes.
-- Ran a train-test-split of 80 to 20 and built the model by stacking layers using rectified linear unit as the activation.
-- Used Adam’s stochastic gradient descent as the optimizer, and MSE for our loss function.
-- Implemented an early stopping function to ensure that our model do not overfit with a patience of 2. 
-- Used 512 epochs for our model so that runtime will not be too long.
+**5. Artificial Newral Network Regression using TensorFlow** <br>
+<pre><code>- Ran a train-test split of 80-20
+- Used 20 epochs for our model so that runtime will not be too long.
+- Obtained an initial classfication accuracy of 99.97% and 99.78% for train and test set
+- Obtained a FN rate of 0.76% in train set and 0.80% FN rate in test set.
+- Hence, we removed the outliers and ran the model again which later return an increase of FP rate but lower FN rate in both train and test.
 </code></pre>
 
 # 💡 Conclusion & Recommendations
-From our 3 models, Random Forest regression has the lowest MSE of 3.30.
-| Model  | Minimum MSE (2 d.p) |
+From our 3 models, Logistic regression has the lowest False Positive and Negative rates on test dataset.
+| Model  | FP & FN on Test Data Set (2 d.p) |
 | ------------- | ------------- |
-| SKLearn Multi-Variate Regression with Cross Validation  | 12.63 |
-| Random Forest Regression with Cross Validation  | 3.30  |
-| Multi-Variate Regression with TensorFlow | 6.45 |
+| Random Forest Regression   | 0.09% and 0.36% |
+| Logistic Regression   | 0.00% and 0.12% |
+|Artifical Neural Network Regression with TensorFlow | 1.01% and 0.12% |
 
-Random Forest Regression maybe more effective due to the <b>size of the dataset</b>. For Deep Networks, <b>a large dataset</b> would make the model <b>more accurate</b>. However, this dataset only has 2578 rows of data, further split into a 80-20 train-test split. Hence Random Forest may have performed better than the Deep Learning Model due to this reason.
-
-Furthermore, the Deep Learning Model used a <b>non-linear regression model</b>, and it performed better than the <b>linear regression model</b> from SKLearn, suggesting that the relation between X variables and Life Expectancy were <b>not linear</b> to begin with.
-
-From the Random Forest Regression, we identified the most important factors that the decision tree used to sift the information. From the tree, we identified that Adult Mortality, Income Composition of Resources and Schooling were the most important factors.
-
-With the 3 factors, we made comparisons with the countries with the highest life expectancies as shown below. .The blue line represents Singapore's statistics of the 3 variables over the years, while the red line represents the average of each variable for these top countries. 
-
-
-
-From Schooling, we can see that Singapore is very much under average of what the top countries had.
-
-We inputted these variables and found that just by slightly increasing schooling, income composition of resources and decreasing adult mortality, there is improvement in life expectancy with schooling being the most significant.
-
-
-
-Hence some of our recommendations for singapore are to invest more funds to subsidize higher education to increase schooling and provide better incentives for individuals to lead healthier lifestyle. 
+Logistic Regression maybe more effective due to the <b>datatype of the dataset</b>. It strength in modelling a binary dependent variable suits our dataset as we are predicting the credit risk which is a categorical data. 
 
 
 # 📚 New Content Learnt
@@ -88,6 +72,5 @@ Hence some of our recommendations for singapore are to invest more funds to subs
 * Git and Github Usage
 
 # References
-* [Kaggle's Life Expectancy Dataset](https://www.kaggle.com/datasets/kumarajarshi/life-expectancy-who) <br>
-* [Singapore Life Expectancy Data for our Motivation](https://tablebuilder.singstat.gov.sg/table/TS/M810501) <br>
+*  [Loan Dataset](https://www.kaggle.com/datasets/somyaagarwal69/loan-data-2015/data) <br>
 * [Regression with TensorFlow](https://www.tensorflow.org/tutorials/keras/regression)
