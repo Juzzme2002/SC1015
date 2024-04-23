@@ -38,7 +38,7 @@ In today's financial landscape, taking out loans has become a standard practice 
 </code></pre>
 
 **4. SKLearn Logistic Regression** <br>
-<pre><code>- Ran a train-test split of 80-20
+<pre><code>- Ran a train-test split of 70-30
 - Fitted the model and plotted the classifcation report and confusion matrix
 - Obtained an initial classification accuracy of 99.88% in train set and 99.87% in test set.
 - Obtained a FN rate of 0.43% in train set and 0.46% FN rate in test set.
@@ -46,7 +46,7 @@ In today's financial landscape, taking out loans has become a standard practice 
 </code></pre>
 
 **5. Artificial Newral Network Regression using TensorFlow** <br>
-<pre><code>- Ran a train-test split of 80-20
+<pre><code>- Ran a train-test split of 70-30
 - Used 20 epochs for our model so that runtime will not be too long.
 - Obtained an initial classfication accuracy of 99.97% and 99.78% for train and test set
 - Obtained a FN rate of 0.76% in train set and 0.80% FN rate in test set.
