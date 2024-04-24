@@ -72,7 +72,7 @@ Therefore, it is important to consider the business and regulatory context in wh
 # 📚 New Content Learnt
 * Deep Learning using TensorFlow and Keras library
 * Random Forest and determining best number of estimators
-* Feature Importance using Random Forest
+* Feature Importance using Chi Square Statistical Test
 * Git and Github Usage
 
 # References
