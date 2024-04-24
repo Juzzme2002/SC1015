@@ -61,8 +61,13 @@ From our 3 models, Logistic regression has the lowest False Positive and Negativ
 | Logistic Regression   | 0.00% and 0.12% |
 |Artifical Neural Network Regression with TensorFlow | 1.01% and 0.12% |
 
-Logistic Regression maybe more effective due to the <b>datatype of the dataset</b>. It strength in modelling a binary dependent variable suits our dataset as we are predicting the credit risk which is a categorical data. 
+Logistic Regression maybe more effective due to the <b>datatype of the dataset</b>. It strength in modelling a binary dependent variable suits our dataset as we are predicting the credit risk which is a categorical data.
 
+Depending on the banks decision, we should consider changing the threshold probability if the model is showing high rates of false positives or false negatives. 
+
+For example, if the model is classifying many False Positives, it may cause a high number of unapproved loans for creditworthy applicants. In this case, the bank might want to change the decision boundary to be more lenient, resulting in fewer false positives and more loans being approved. On the other hand, if the model is classifying many False Negatives, it may be cause a high level of loan defaults and financial loss for the lender. In this case, the lender might want to change the decision boundary to be more strict, resulting in fewer false negatives and more defaults being identified.
+
+Therefore, it is important to consider the business and regulatory context in which the model will be used when deciding on the threshold value.
 
 # 📚 New Content Learnt
 * Deep Learning using TensorFlow and Keras library
