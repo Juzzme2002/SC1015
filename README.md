@@ -66,11 +66,10 @@ Logistic Regression maybe more effective due to the <b>datatype of the dataset</
 
 # 📚 New Content Learnt
 * Deep Learning using TensorFlow and Keras library
-* Random Forest Regression and determining best number of estimators
-* Various ways to prevent the issue of overfitting (Cross Validation and EarlyStopping in Keras Callbacks)
+* Random Forest and determining best number of estimators
 * Feature Importance using Random Forest
 * Git and Github Usage
 
 # References
-*  [Loan Dataset](https://www.kaggle.com/datasets/somyaagarwal69/loan-data-2015/data) <br>
+* [Loan Dataset](https://www.kaggle.com/datasets/somyaagarwal69/loan-data-2015/data) <br>
 * [Regression with TensorFlow](https://www.tensorflow.org/tutorials/keras/regression)
