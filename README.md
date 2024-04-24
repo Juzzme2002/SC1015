@@ -45,7 +45,7 @@ In today's financial landscape, taking out loans has become a standard practice 
 - Hence, we removed the outliers and ran the model again which later return a lower FN in train set of 0.36%  
 </code></pre>
 
-**5. Artificial Newral Network Regression using TensorFlow** <br>
+**5. Artificial Neural Network Regression using TensorFlow** <br>
 <pre><code>- Ran a train-test split of 70-30
 - Used 20 epochs for our model so that runtime will not be too long.
 - Obtained an initial classfication accuracy of 99.97% and 99.78% for train and test set
